@@ -1,0 +1,50 @@
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="20%p"
+    android:horizontalGap="1dp"
+    android:verticalGap="1dp"
+    android:keyHeight="60dp">
+
+    <!-- First Row -->
+    <Row>
+        <Key android:keyLabel="\{1,2,3\}" android:keyOutputText="{1, 2, 3}" />
+        <Key android:keyLabel="\in" android:keyOutputText="∈" />
+        <Key android:keyLabel="\not\in" android:keyOutputText="∉" />
+        <Key android:keyLabel="\subset" android:keyOutputText="⊂" />
+        <Key android:keyLabel="\subseteq" android:keyOutputText="⊆" />
+    </Row>
+
+    <!-- Second Row -->
+    <Row>
+        <Key android:keyLabel="\not\subset" android:keyOutputText="⊄" />
+        <Key android:keyLabel="\supset" android:keyOutputText="⊃" />
+        <Key android:keyLabel="\supseteq" android:keyOutputText="⊇" />
+        <Key android:keyLabel="\cup" android:keyOutputText="∪" />
+        <Key android:keyLabel="\cap" android:keyOutputText="∩" />
+    </Row>
+
+    <!-- Third Row -->
+    <Row>
+        <Key android:keyLabel="\bigcup_{n=1}^{10}A_n" android:keyOutputText="⋃_{n=1}^{10} A_n" />
+        <Key android:keyLabel="\bigcap_{n=1}^{10}A_n" android:keyOutputText="⋂_{n=1}^{10} A_n" />
+        <Key android:keyLabel="\emptyset" android:keyOutputText="∅" />
+        <Key android:keyLabel="\mathcal{P}" android:keyOutputText="𝒫" />
+        <Key android:keyLabel="\min" android:keyOutputText="min" />
+    </Row>
+
+    <!-- Fourth Row -->
+    <Row>
+        <Key android:keyLabel="\max" android:keyOutputText="max" />
+        <Key android:keyLabel="\sup" android:keyOutputText="sup" />
+        <Key android:keyLabel="\inf" android:keyOutputText="inf" />
+        <Key android:keyLabel="\limsup" android:keyOutputText="lim sup" />
+        <Key android:keyLabel="\liminf" android:keyOutputText="lim inf" />
+    </Row>
+
+    <!-- Fifth Row -->
+    <Row>
+        <Key android:keyLabel="\overline{A}" android:keyOutputText="𝐴̅" />
+        <Key android:keyLabel="\{ }" android:keyOutputText="{}" />
+        <Key android:keyLabel="DEL" android:codes="-5" android:keyEdgeFlags="right" android:isRepeatable="true" />
+    </Row>
+
+</Keyboard>

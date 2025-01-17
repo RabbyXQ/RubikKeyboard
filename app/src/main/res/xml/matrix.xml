@@ -1,0 +1,39 @@
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="25%p"
+    android:horizontalGap="1dp"
+    android:verticalGap="1dp"
+    android:keyHeight="60dp">
+
+    <!-- Vector Keys -->
+    <Row>
+        <Key android:keyLabel="vector \\vec{v}" android:keyOutputText="⃗𝑣" />
+        <Key android:keyLabel="vector \\mathbf{v}" android:keyOutputText="𝑣" />
+        <Key android:keyLabel="norm ||\\vec{v}||" android:keyOutputText="||⃗𝑣||" />
+    </Row>
+
+    <!-- Matrix -->
+    <Row>
+        <Key android:keyLabel="matrix"
+            android:keyOutputText="⎡\n⎢⎢\n⎣\n1 2 3\n4 5 6\n7 8 0\n⎤\n⎥⎥\n⎦" />
+    </Row>
+
+    <!-- Determinant -->
+    <Row>
+        <Key android:keyLabel="determinant"
+            android:keyOutputText="∣∣∣∣\n1 2 3\n4 5 6\n7 8 0\n∣∣∣∣" />
+    </Row>
+
+    <!-- Determinant, Trace, and Dimension -->
+    <Row>
+        <Key android:keyLabel="\\det(A)" android:keyOutputText="det(𝐴)" />
+        <Key android:keyLabel="\\operatorname{tr}(A)" android:keyOutputText="tr(𝐴)" />
+        <Key android:keyLabel="\\dim(V)" android:keyOutputText="dim(𝑉)" />
+    </Row>
+
+    <!-- Additional Keys -->
+    <Row>
+        <Key android:keyLabel="DEL" android:codes="-5" android:keyWidth="40dp" android:keyEdgeFlags="left" android:isRepeatable="true" />
+        <Key android:keyLabel="SPACE" android:keyWidth="160dp" android:codes="32" android:isRepeatable="true" />
+        <Key android:keyLabel="DONE" android:keyWidth="100dp" android:codes="-4" android:keyEdgeFlags="right" />
+    </Row>
+</Keyboard>

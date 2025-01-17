@@ -1,6 +1,5 @@
 <Keyboard
     xmlns:android="http://schemas.android.com/apk/res/android"
-
     android:horizontalGap="0px"
     android:verticalGap="0px"
     android:keyHeight="60dp">
@@ -9,8 +8,14 @@
             android:codes="-1" android:keyWidth="40%p" android:keyEdgeFlags="left"/>
         <Key android:keyLabel="Greek"
             android:codes="-2" android:keyWidth="30%p"/>
-        <Key android:keyLabel="Math"
+        <Key android:keyLabel="Algebra"
             android:codes="-3" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
+        <Key android:keyLabel="Calculus"
+            android:codes="-999" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
+        <Key android:keyLabel="Matrix"
+            android:codes="-1000" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
+        <Key android:keyLabel="Vector"
+            android:codes="-666" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
     </Row>
 
     <!-- Greek letters -->
@@ -103,5 +108,30 @@
         <Key android:keyLabel="≈" android:codes="8776" />
 
     </Row>
+
+    <Row android:rowEdgeFlags="bottom">
+        <Key android:keyLabel=","
+            android:keyWidth="30dp"
+            android:keyEdgeFlags="left"
+            android:codes="44" />
+        <Key android:keyLabel="/"
+            android:keyWidth="30dp"
+            android:codes="47" />
+        <Key android:keyLabel="SPACE"
+            android:keyWidth="160dp"
+            android:isRepeatable="true"
+            android:codes="32" />
+        <Key android:keyLabel="DONE"
+            android:keyWidth="100dp"
+            android:keyEdgeFlags="right"
+            android:codes="-4" />
+        <Key android:keyLabel="DEL"
+            android:keyWidth="40dp"
+            android:isRepeatable="true"
+            android:codes="-5" />
+
+    </Row>
+
+
 
 </Keyboard>

@@ -1,0 +1,40 @@
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="25%p"
+    android:horizontalGap="1dp"
+    android:verticalGap="1dp"
+    android:keyHeight="60dp">
+
+    <!-- Geometry -->
+    <Row>
+        <Key android:keyLabel="angle \\angle ABC" android:keyOutputText="∠𝐴𝐵𝐶" />
+        <Key android:keyLabel="degree 90^{\\circ}" android:keyOutputText="90∘" />
+        <Key android:keyLabel="triangle \\triangle ABC" android:keyOutputText="△𝐴𝐵𝐶" />
+        <Key android:keyLabel="segment \\overline{AB}" android:keyOutputText="𝐴𝐵" />
+    </Row>
+
+    <!-- Trigonometric Functions -->
+    <Row>
+        <Key android:keyLabel="sine \\sin" android:keyOutputText="sin" />
+        <Key android:keyLabel="cosine \\cos" android:keyOutputText="cos" />
+        <Key android:keyLabel="tangent \\tan" android:keyOutputText="tan" />
+        <Key android:keyLabel="cotangent \\cot" android:keyOutputText="cot" />
+    </Row>
+
+    <Row>
+        <Key android:keyLabel="secant \\sec" android:keyOutputText="sec" />
+        <Key android:keyLabel="cosecant \\csc" android:keyOutputText="csc" />
+        <Key android:keyLabel="inverse sine \\arcsin" android:keyOutputText="arcsin" />
+        <Key android:keyLabel="inverse cosine \\arccos" android:keyOutputText="arccos" />
+    </Row>
+
+    <Row>
+        <Key android:keyLabel="inverse tangent \\arctan" android:keyOutputText="arctan" />
+    </Row>
+
+    <!-- Additional Keys -->
+    <Row>
+        <Key android:keyLabel="DEL" android:codes="-5" android:keyWidth="40dp" android:keyEdgeFlags="left" android:isRepeatable="true" />
+        <Key android:keyLabel="SPACE" android:keyWidth="160dp" android:codes="32" android:isRepeatable="true" />
+        <Key android:keyLabel="DONE" android:keyWidth="100dp" android:codes="-4" android:keyEdgeFlags="right" />
+    </Row>
+</Keyboard>

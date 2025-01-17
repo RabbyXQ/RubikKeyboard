@@ -1,0 +1,85 @@
+<Keyboard
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:horizontalGap="0px"
+    android:verticalGap="0px"
+    android:keyHeight="60dp">
+    <Row>
+        <Key android:keyLabel="QWERTY"
+            android:codes="-1" android:keyWidth="40%p" android:keyEdgeFlags="left"/>
+        <Key android:keyLabel="Greek"
+            android:codes="-2" android:keyWidth="30%p"/>
+        <Key android:keyLabel="Algebra"
+            android:codes="-3" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
+        <Key android:keyLabel="Calculus"
+            android:codes="-999" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
+        <Key android:keyLabel="Matrix"
+            android:codes="-1000" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
+        <Key android:keyLabel="Vector"
+            android:codes="-666" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
+    </Row>
+
+    <!-- Basic Operations -->
+    <Row>
+        <Key android:keyLabel="+" android:codes="43" />
+        <Key android:keyLabel="−" android:codes="45" />
+        <Key android:keyLabel="±" android:codes="177" />
+        <Key android:keyLabel="×" android:codes="215" />
+        <Key android:keyLabel="⋅" android:codes="183" />
+        <Key android:keyLabel="÷" android:codes="247" />
+        <Key android:keyLabel="/" android:codes="47" />
+    </Row>
+
+    <!-- Circle Operations -->
+    <Row>
+        <Key android:keyLabel="⊕" android:codes="8853" />
+        <Key android:keyLabel="⊗" android:codes="8855" />
+    </Row>
+
+    <!-- Comparisons -->
+    <Row>
+        <Key android:keyLabel="=" android:codes="61" />
+        <Key android:keyLabel="≠" android:codes="8800" />
+        <Key android:keyLabel="&lt;" android:codes="60" />
+        <Key android:keyLabel="&gt;" android:codes="62" />
+        <Key android:keyLabel="≤" android:codes="8804" />
+        <Key android:keyLabel="≥" android:codes="8805" />
+        <Key android:keyLabel="≈" android:codes="8776" />
+        <Key android:keyLabel="∞" android:codes="8734" />
+    </Row>
+
+    <!-- Dots and Fractions -->
+    <Row>
+        <Key android:keyLabel="1, 2, 3, …" android:codes="44" />
+        <Key android:keyLabel="1 + 2 + 3 + ⋯" android:codes="43" />
+        <Key android:keyLabel="𝑎/𝑏" android:codes="47" />
+    </Row>
+
+    <!-- Roots and Exponentiation -->
+    <Row>
+        <Key android:keyLabel="√𝑥" android:codes="8730" />
+        <Key android:keyLabel="𝑛√𝑥" android:codes="8730" />
+        <Key android:keyLabel="𝑎^𝑏" android:codes="94" />
+        <Key android:keyLabel="𝑎𝑏" android:codes="95" />
+    </Row>
+
+    <!-- Absolute value and Logarithms -->
+    <Row>
+        <Key android:keyLabel="|𝑥|" android:codes="124" />
+        <Key android:keyLabel="ln(𝑥)" android:codes="1083" />
+        <Key android:keyLabel="log𝑎(𝑏)" android:codes="1083" />
+        <Key android:keyLabel="𝑒^𝑥 = exp(𝑥)" android:codes="101" />
+    </Row>
+
+    <!-- Degree Function -->
+    <Row>
+        <Key android:keyLabel="deg(𝑓)" android:codes="8730" />
+    </Row>
+
+    <!-- Additional Keys -->
+    <Row>
+        <Key android:keyLabel="DEL" android:codes="-5" android:keyWidth="40dp" android:keyEdgeFlags="left" android:isRepeatable="true" />
+        <Key android:keyLabel="SPACE" android:keyWidth="160dp" android:codes="32" android:isRepeatable="true" />
+        <Key android:keyLabel="DONE" android:keyWidth="100dp" android:codes="-4" android:keyEdgeFlags="right" />
+    </Row>
+
+</Keyboard>

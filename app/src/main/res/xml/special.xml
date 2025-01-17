@@ -1,0 +1,37 @@
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="25%p"
+    android:horizontalGap="1dp"
+    android:verticalGap="1dp"
+    android:keyHeight="60dp">
+
+    <!-- Special Characters -->
+    <Row>
+        <Key android:keyLabel="dollar \\$" android:keyOutputText="$" />
+        <Key android:keyLabel="percent \\%" android:keyOutputText="%" />
+        <Key android:keyLabel="ampersand \\&amp;" android:keyOutputText="&amp;" />
+        <Key android:keyLabel="pound \\#" android:keyOutputText="#" />
+        <Key android:keyLabel="backslash \\\\" android:keyOutputText="\\" />
+    </Row>
+
+    <!-- Quotes and Hyphens -->
+    <Row>
+        <Key android:keyLabel="left quote marks ``" android:keyOutputText="“" />
+        <Key android:keyLabel="right quote marks ''" android:keyOutputText="”" />
+        <Key android:keyLabel="single left quote \`" android:keyOutputText="‘" />
+        <Key android:keyLabel="single right quote \'" android:keyOutputText="’" />
+    </Row>
+
+    <!-- Hyphenation and Dashes -->
+    <Row>
+        <Key android:keyLabel="hyphen X-ray" android:keyOutputText="X-ray" />
+        <Key android:keyLabel="en-dash pp. 5--15" android:keyOutputText="pp. 5–15" />
+        <Key android:keyLabel="em-dash Yes---or no?" android:keyOutputText="Yes—or no?" />
+    </Row>
+
+    <!-- Additional Keys -->
+    <Row>
+        <Key android:keyLabel="DEL" android:codes="-5" android:keyWidth="40dp" android:keyEdgeFlags="left" android:isRepeatable="true" />
+        <Key android:keyLabel="SPACE" android:keyWidth="160dp" android:codes="32" android:isRepeatable="true" />
+        <Key android:keyLabel="DONE" android:keyWidth="100dp" android:codes="-4" android:keyEdgeFlags="right" />
+    </Row>
+</Keyboard>

@@ -18,6 +18,7 @@
             android:name=".EDTMService"
             android:enabled="true"
             android:exported="true"
+            android:windowSoftInputMode="adjustResize|stateVisible"
             android:permission="android.permission.BIND_INPUT_METHOD">
 
             <meta-data

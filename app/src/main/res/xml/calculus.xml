@@ -1,0 +1,40 @@
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="20%p"
+    android:horizontalGap="1dp"
+    android:verticalGap="1dp"
+    android:keyHeight="60dp">
+
+    <!-- Derivatives Row -->
+    <Row>
+        <Key android:keyLabel="\frac{df}{dx}" android:keyOutputText="𝑑𝑓/𝑑𝑥" />
+        <Key android:keyLabel="f'" android:keyOutputText="𝑓′" />
+        <Key android:keyLabel="\frac{\partial f}{\partial x}" android:keyOutputText="𝜕𝑓/𝜕𝑥" />
+        <Key android:keyLabel="\frac{d^n f}{dx^n}" android:keyOutputText="𝑑ⁿ𝑓/𝑑𝑥ⁿ" />
+    </Row>
+
+    <!-- Integrals Row -->
+    <Row>
+        <Key android:keyLabel="\int" android:keyOutputText="∫" />
+        <Key android:keyLabel="\iint" android:keyOutputText="∬" />
+        <Key android:keyLabel="\iiint" android:keyOutputText="∭" />
+    </Row>
+
+    <!-- Limits Row -->
+    <Row>
+        <Key android:keyLabel="\lim_{x\to \infty}" android:keyOutputText="lim𝑥→∞" />
+    </Row>
+
+    <!-- Summation and Product Row -->
+    <Row>
+        <Key android:keyLabel="\sum_{n=1}^{\infty}a_n" android:keyOutputText="∑_{n=1}^{∞}𝑎ₙ" />
+        <Key android:keyLabel="\prod_{n=1}^{\infty}a_n" android:keyOutputText="∏_{n=1}^{∞}𝑎ₙ" />
+    </Row>
+
+    <!-- Additional Keys -->
+    <Row>
+        <Key android:keyLabel="DEL" android:codes="-5" android:keyWidth="40dp" android:keyEdgeFlags="left" android:isRepeatable="true" />
+        <Key android:keyLabel="SPACE" android:keyWidth="160dp" android:codes="32" android:isRepeatable="true" />
+        <Key android:keyLabel="DONE" android:keyWidth="100dp" android:codes="-4" android:keyEdgeFlags="right" />
+    </Row>
+
+</Keyboard>

@@ -9,9 +9,17 @@
             android:codes="-1" android:keyWidth="40%p" android:keyEdgeFlags="left"/>
         <Key android:keyLabel="Greek"
             android:codes="-2" android:keyWidth="30%p"/>
-        <Key android:keyLabel="Math"
+        <Key android:keyLabel="Algebra"
             android:codes="-3" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
+        <Key android:keyLabel="Calculus"
+            android:codes="-999" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
+        <Key android:keyLabel="Matrix"
+            android:codes="-1000" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
+        <Key android:keyLabel="Vector"
+            android:codes="-666" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
     </Row>
+
+
     <Row>
         <Key android:keyLabel="1"
             android:keyEdgeFlags="left"
