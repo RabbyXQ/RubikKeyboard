@@ -1,0 +1,40 @@
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="20%p"
+    android:horizontalGap="1dp"
+    android:verticalGap="1dp"
+    android:keyHeight="60dp">
+
+    <!-- Logical Operators Row 1 -->
+    <Row>
+        <Key android:keyLabel="not \sim" android:keyOutputText="∼" />
+        <Key android:keyLabel="and \land" android:keyOutputText="∧" />
+        <Key android:keyLabel="or \lor" android:keyOutputText="∨" />
+    </Row>
+
+    <!-- Logical Operators Row 2 -->
+    <Row>
+        <Key android:keyLabel="if...then \to" android:keyOutputText="→" />
+        <Key android:keyLabel="iff \leftrightarrow" android:keyOutputText="↔" />
+        <Key android:keyLabel="logical equiv \equiv" android:keyOutputText="≡" />
+    </Row>
+
+    <!-- Logical Symbols Row 3 -->
+    <Row>
+        <Key android:keyLabel="therefore \therefore" android:keyOutputText="∴" />
+        <Key android:keyLabel="there exists \exists" android:keyOutputText="∃" />
+        <Key android:keyLabel="for all \forall" android:keyOutputText="∀" />
+    </Row>
+
+    <!-- Logical Implications Row 4 -->
+    <Row>
+        <Key android:keyLabel="implies \Rightarrow" android:keyOutputText="⇒" />
+        <Key android:keyLabel="equivalent \Leftrightarrow" android:keyOutputText="⇔" />
+    </Row>
+
+    <!-- Additional Keys -->
+    <Row>
+        <Key android:keyLabel="DEL" android:codes="-5" android:keyWidth="40dp" android:keyEdgeFlags="left" android:isRepeatable="true" />
+        <Key android:keyLabel="SPACE" android:keyWidth="160dp" android:codes="32" android:isRepeatable="true" />
+        <Key android:keyLabel="DONE" android:keyWidth="100dp" android:codes="-4" android:keyEdgeFlags="right" />
+    </Row>
+</Keyboard>

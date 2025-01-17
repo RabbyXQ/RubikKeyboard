@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.inputmethodservice.KeyboardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:keyTextColor="@color/white"
-    android:keyBackground="@drawable/keyboard_background"
-    android:keyPreviewLayout="@layout/key_preview"
-    android:background="@color/keyboard_background_color">
+    android:orientation="vertical">
 
-</android.inputmethodservice.KeyboardView>
+    <!-- Small Bar Above the Keyboard -->
+    <LinearLayout
+        android:id="@+id/suggestionBar"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#ddd"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/suggestionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Suggestions"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Keyboard View -->
+    <android.inputmethodservice.KeyboardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/keyboardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:keyTextColor="@color/white"
+        android:keyBackground="@drawable/keyboard_background"
+        android:keyPreviewLayout="@layout/key_preview"
+        android:background="@color/keyboard_background_color" />
+
+</LinearLayout>

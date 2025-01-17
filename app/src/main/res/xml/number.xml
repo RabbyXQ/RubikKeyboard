@@ -1,0 +1,32 @@
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="25%p"
+    android:horizontalGap="1dp"
+    android:verticalGap="1dp"
+    android:keyHeight="60dp">
+
+    <!-- Division and Modulus -->
+    <Row>
+        <Key android:keyLabel="divides \\mid" android:keyOutputText="∣" />
+        <Key android:keyLabel="not divides \\not \\mid" android:keyOutputText="∤" />
+        <Key android:keyLabel="div \\operatorname{div}" android:keyOutputText="div" />
+        <Key android:keyLabel="mod \\mod" android:keyOutputText="mod" />
+    </Row>
+
+    <!-- Greatest Common Divisor -->
+    <Row>
+        <Key android:keyLabel="gcd \\gcd" android:keyOutputText="gcd" />
+    </Row>
+
+    <!-- Ceiling and Floor -->
+    <Row>
+        <Key android:keyLabel="ceiling \\lceil x \\rceil" android:keyOutputText="⌈𝑥⌉" />
+        <Key android:keyLabel="floor \\lfloor x \\rfloor" android:keyOutputText="⌊𝑥⌋" />
+    </Row>
+
+    <!-- Additional Keys -->
+    <Row>
+        <Key android:keyLabel="DEL" android:codes="-5" android:keyWidth="40dp" android:keyEdgeFlags="left" android:isRepeatable="true" />
+        <Key android:keyLabel="SPACE" android:keyWidth="160dp" android:codes="32" android:isRepeatable="true" />
+        <Key android:keyLabel="DONE" android:keyWidth="100dp" android:codes="-4" android:keyEdgeFlags="right" />
+    </Row>
+</Keyboard>
