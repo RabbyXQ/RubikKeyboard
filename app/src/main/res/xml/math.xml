@@ -1,0 +1,17 @@
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Row>
+        <Key android:keyLabel="QWERTY"
+            android:codes="-1" android:keyWidth="40%p" android:keyEdgeFlags="left"/>
+        <Key android:keyLabel="Greek"
+            android:codes="-2" android:keyWidth="30%p"/>
+        <Key android:keyLabel="Math"
+            android:codes="-3" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
+    </Row>
+
+    <Row>
+        <Key android:keyLabel="+" android:codes="43" />
+        <Key android:keyLabel="-" android:codes="45" />
+        <!-- Add other math symbols -->
+    </Row>
+</Keyboard>

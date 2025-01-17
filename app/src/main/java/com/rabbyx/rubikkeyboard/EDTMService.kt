@@ -3,35 +3,31 @@ package com.rabbyx.rubikkeyboard
 import android.inputmethodservice.InputMethodService
 import android.inputmethodservice.Keyboard
 import android.inputmethodservice.KeyboardView
-import android.os.IBinder
 import android.view.KeyEvent
 import android.view.inputmethod.InputConnection
-import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 
 class EDTMService : InputMethodService(), KeyboardView.OnKeyboardActionListener {
 
     private lateinit var keyboardView: KeyboardView
     private lateinit var keyboard: Keyboard
+    private var isGreekLayout = false  // Flag to track the Greek layout
+    private var isMathLayout = false   // Flag to track the Math layout
 
     override fun onCreateInputView(): KeyboardView {
         // Inflate the keyboard layout and set up the keyboard
         keyboardView = layoutInflater.inflate(R.layout.keyboard, null) as KeyboardView
 
-        // Load the custom keyboard layout (make sure you have the keyboard XML in res/xml/keyboard.xml)
-        keyboard = Keyboard(this, R.xml.qwerty) // Replace with your actual XML file
-
-        // Set the keyboard to the view
+        // Load the default layout (QWERTY)
+        keyboard = Keyboard(this, R.xml.qwerty)
         keyboardView.keyboard = keyboard
         keyboardView.setOnKeyboardActionListener(this)
 
-        // Return the KeyboardView to be shown to the user
         return keyboardView
     }
 
     override fun onPress(primaryCode: Int) {
         // Handle key press actions if needed
-        // You can highlight keys or give feedback when keys are pressed
     }
 
     override fun onRelease(primaryCode: Int) {
@@ -44,12 +40,24 @@ class EDTMService : InputMethodService(), KeyboardView.OnKeyboardActionListener 
         when (primaryCode) {
             Keyboard.KEYCODE_DONE -> {
                 // Handle "done" or "enter" key
-                inputConnection.sendKeyEvent(android.view.KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER))
-                inputConnection.sendKeyEvent(android.view.KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_ENTER))
+                inputConnection.sendKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER))
+                inputConnection.sendKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_ENTER))
             }
             Keyboard.KEYCODE_DELETE -> {
                 // Handle delete key
                 inputConnection.deleteSurroundingText(1, 0)
+            }
+            -1 -> {
+                // Switch to QWERTY layout
+                switchToQwertyLayout()
+            }
+            -2 -> {
+                // Switch to Greek layout
+                switchToGreekLayout()
+            }
+            -3 -> {
+                // Switch to Math layout
+                switchToMathLayout()
             }
             else -> {
                 // Send character corresponding to the primary key code
@@ -60,15 +68,57 @@ class EDTMService : InputMethodService(), KeyboardView.OnKeyboardActionListener 
     }
 
     override fun onText(text: CharSequence?) {
-        // Handle the text input if needed (optional)
+        // Not implemented
+    }
+
+    // Method to switch to QWERTY layout
+    private fun switchToQwertyLayout() {
+        if (isMathLayout || isGreekLayout) {
+            // Reset the flags when switching back to QWERTY layout
+            isMathLayout = false
+            isGreekLayout = false
+            keyboard = Keyboard(this, R.xml.qwerty)
+            keyboardView.keyboard = keyboard
+            Toast.makeText(this, "QWERTY Layout", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    // Method to switch to Greek layout
+    private fun switchToGreekLayout() {
+        if (!isGreekLayout) {
+            // Reset other layouts and switch to Greek
+            isGreekLayout = true
+            isMathLayout = false
+            keyboard = Keyboard(this, R.xml.greek)
+            keyboardView.keyboard = keyboard
+            Toast.makeText(this, "Greek Layout", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    // Method to switch to Math layout
+    private fun switchToMathLayout() {
+        if (!isMathLayout) {
+            // Reset other layouts and switch to Math
+            isMathLayout = true
+            isGreekLayout = false
+            keyboard = Keyboard(this, R.xml.math)
+            keyboardView.keyboard = keyboard
+            Toast.makeText(this, "Math Layout", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun swipeLeft() {
-        // Handle swipe left gesture if needed
+        // Switch to Math layout on swipe left
+        if (!isMathLayout) {
+            switchToMathLayout()
+        }
     }
 
     override fun swipeRight() {
-        // Handle swipe right gesture if needed
+        // Switch to Greek layout on swipe right
+        if (!isGreekLayout) {
+            switchToGreekLayout()
+        }
     }
 
     override fun swipeDown() {

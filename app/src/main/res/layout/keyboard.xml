@@ -6,6 +6,6 @@
     android:keyTextColor="@color/white"
     android:keyBackground="@drawable/keyboard_background"
     android:keyPreviewLayout="@layout/key_preview"
-    android:background="@color/design_default_color_primary_dark">
+    android:background="@color/keyboard_background_color">
 
 </android.inputmethodservice.KeyboardView>
