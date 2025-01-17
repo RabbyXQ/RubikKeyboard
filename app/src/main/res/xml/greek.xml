@@ -1,4 +1,9 @@
-<Keyboard xmlns:android="http://schemas.android.com/apk/res/android">
+<Keyboard
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:horizontalGap="0px"
+    android:verticalGap="0px"
+    android:keyHeight="60dp">
     <Row>
         <Key android:keyLabel="QWERTY"
             android:codes="-1" android:keyWidth="40%p" android:keyEdgeFlags="left"/>
@@ -8,9 +13,95 @@
             android:codes="-3" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
     </Row>
 
+    <!-- Greek letters -->
     <Row>
         <Key android:keyLabel="α" android:codes="945" />
         <Key android:keyLabel="β" android:codes="946" />
-        <!-- Add other Greek keys -->
+        <Key android:keyLabel="γ" android:codes="947" />
+        <Key android:keyLabel="δ" android:codes="948" />
+        <Key android:keyLabel="ε" android:codes="949" />
+        <Key android:keyLabel="ζ" android:codes="950" />
+        <Key android:keyLabel="η" android:codes="951" />
+        <Key android:keyLabel="θ" android:codes="952" />
+        <Key android:keyLabel="∩" android:codes="8745" />
+        <Key android:keyLabel="∪" android:codes="8746" />
+
     </Row>
+
+    <Row>
+        <Key android:keyLabel="ι" android:codes="953" />
+        <Key android:keyLabel="κ" android:codes="954" />
+        <Key android:keyLabel="λ" android:codes="955" />
+        <Key android:keyLabel="μ" android:codes="956" />
+        <Key android:keyLabel="ν" android:codes="957" />
+        <Key android:keyLabel="ξ" android:codes="958" />
+        <Key android:keyLabel="ο" android:codes="959" />
+        <Key android:keyLabel="π" android:codes="960" />
+        <Key android:keyLabel="M" android:codes="922" />
+        <Key android:keyLabel="$" android:codes="8746" />
+
+    </Row>
+
+    <Row>
+        <Key android:keyLabel="ρ" android:codes="961" />
+        <Key android:keyLabel="σ" android:codes="963" />
+        <Key android:keyLabel="τ" android:codes="964" />
+        <Key android:keyLabel="υ" android:codes="965" />
+        <Key android:keyLabel="φ" android:codes="966" />
+        <Key android:keyLabel="χ" android:codes="967" />
+        <Key android:keyLabel="ψ" android:codes="968" />
+        <Key android:keyLabel="ω" android:codes="969" />
+        <Key android:keyLabel="Γ" android:codes="915" />
+        <Key android:keyLabel="Δ" android:codes="916" />
+        <Key android:keyLabel="Θ" android:codes="920" />
+
+    </Row>
+
+    <Row>
+        <Key android:keyLabel="Κ" android:codes="922" />
+        <Key android:keyLabel="Λ" android:codes="923" />
+        <Key android:keyLabel="Ξ" android:codes="926" />
+        <Key android:keyLabel="Ο" android:codes="927" />
+        <Key android:keyLabel="Σ" android:codes="931" />
+        <Key android:keyLabel="Τ" android:codes="932" />
+        <Key android:keyLabel="Υ" android:codes="933" />
+        <Key android:keyLabel="Φ" android:codes="934" />
+        <Key android:keyLabel="Χ" android:codes="935" />
+        <Key android:keyLabel="Ψ" android:codes="936" />
+        <Key android:keyLabel="Ω" android:codes="937" />
+        <Key android:keyLabel="∝" android:codes="8733" />
+        <Key android:keyLabel="≡" android:codes="8801" />
+
+        <Key android:keyLabel="Π" android:codes="928" />
+    </Row>
+
+    <!-- Mathematical symbols -->
+    <Row>
+        <Key android:keyLabel="∞" android:codes="8734" />
+        <Key android:keyLabel="≈" android:codes="8776" />
+        <Key android:keyLabel="±" android:codes="177" />
+        <Key android:keyLabel="∑" android:codes="8721" />
+        <Key android:keyLabel="√" android:codes="8730" />
+        <Key android:keyLabel="π" android:codes="960" />
+        <Key android:keyLabel="∫" android:codes="8747" />
+        <Key android:keyLabel="×" android:codes="215" />
+        <Key android:keyLabel="⊕" android:codes="8853" />
+        <Key android:keyLabel="⊗" android:codes="8855" />
+
+    </Row>
+
+    <Row>
+        <Key android:keyLabel="÷" android:codes="247" />
+        <Key android:keyLabel="≠" android:codes="8800" />
+        <Key android:keyLabel="≤" android:codes="8804" />
+        <Key android:keyLabel="≥" android:codes="8805" />
+        <Key android:keyLabel="→" android:codes="8594" />
+        <Key android:keyLabel="←" android:codes="8592" />
+        <Key android:keyLabel="↑" android:codes="8593" />
+        <Key android:keyLabel="↓" android:codes="8595" />
+        <Key android:keyLabel="∠" android:codes="8736" />
+        <Key android:keyLabel="≈" android:codes="8776" />
+
+    </Row>
+
 </Keyboard>
