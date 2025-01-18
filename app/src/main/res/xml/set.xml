@@ -1,50 +1,133 @@
-<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
-    android:keyWidth="20%p"
-    android:horizontalGap="1dp"
-    android:verticalGap="1dp"
-    android:keyHeight="60dp">
-
-    <!-- First Row -->
+<Keyboard
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:horizontalGap="5dp"
+    android:verticalGap="0px"
+    android:keyHeight="40dp">
     <Row>
-        <Key android:keyLabel="\{1,2,3\}" android:keyOutputText="{1, 2, 3}" />
-        <Key android:keyLabel="\in" android:keyOutputText="∈" />
-        <Key android:keyLabel="\not\in" android:keyOutputText="∉" />
-        <Key android:keyLabel="\subset" android:keyOutputText="⊂" />
-        <Key android:keyLabel="\subseteq" android:keyOutputText="⊆" />
+        <Key android:keyLabel="I"
+            android:codes="-1" android:keyWidth="40%p" android:keyEdgeFlags="left"/>
+        <Key android:keyLabel="II"
+            android:codes="-2" android:keyWidth="30%p"/>
+        <Key android:keyLabel="III"
+            android:codes="-3" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
+        <Key android:keyLabel="IV"
+            android:codes="-999" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
+        <Key android:keyLabel="V"
+            android:codes="-1000" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
+        <Key android:keyLabel="VI"
+            android:codes="-666" android:keyWidth="30%p" android:keyEdgeFlags="right"/>
     </Row>
 
-    <!-- Second Row -->
+    <!-- Greek letters -->
     <Row>
-        <Key android:keyLabel="\not\subset" android:keyOutputText="⊄" />
-        <Key android:keyLabel="\supset" android:keyOutputText="⊃" />
-        <Key android:keyLabel="\supseteq" android:keyOutputText="⊇" />
-        <Key android:keyLabel="\cup" android:keyOutputText="∪" />
-        <Key android:keyLabel="\cap" android:keyOutputText="∩" />
+        <Key android:keyIcon="@drawable/latex_image_2" android:codes="1112" />
+        <Key android:keyIcon="@drawable/latex_image_3" android:codes="1113" />
+        <Key android:keyIcon="@drawable/latex_image_4" android:codes="1114" />
+        <Key android:keyIcon="@drawable/latex_image_5" android:codes="1115" />
+        <Key android:keyIcon="@drawable/latex_image_6" android:codes="1116" />
+        <Key android:keyIcon="@drawable/latex_image_7" android:codes="1117" />
+        <Key android:keyIcon="@drawable/latex_image_8" android:codes="1118" />
+        <Key android:keyIcon="@drawable/latex_image_9" android:codes="1119" />
+        <Key android:keyIcon="@drawable/latex_image_10" android:codes="1119" />
+        <Key android:keyIcon="@drawable/latex_image_11" android:codes="1120" />
+
     </Row>
 
-    <!-- Third Row -->
     <Row>
-        <Key android:keyLabel="\bigcup_{n=1}^{10}A_n" android:keyOutputText="⋃_{n=1}^{10} A_n" />
-        <Key android:keyLabel="\bigcap_{n=1}^{10}A_n" android:keyOutputText="⋂_{n=1}^{10} A_n" />
-        <Key android:keyLabel="\emptyset" android:keyOutputText="∅" />
-        <Key android:keyLabel="\mathcal{P}" android:keyOutputText="𝒫" />
-        <Key android:keyLabel="\min" android:keyOutputText="min" />
+        <Key android:keyIcon="@drawable/latex_image_12" android:codes="1121" />
+        <Key android:keyIcon="@drawable/latex_image_13" android:codes="1122" />
+        <Key android:keyIcon="@drawable/latex_image_14" android:codes="1123" />
+        <Key android:keyIcon="@drawable/latex_image_15" android:codes="1124" />
+        <Key android:keyIcon="@drawable/latex_image_16" android:codes="1125" />
+        <Key android:keyIcon="@drawable/latex_image_17" android:codes="1126" />
+        <Key android:keyIcon="@drawable/latex_image_18" android:codes="1127" />
+        <Key android:keyIcon="@drawable/latex_image_19" android:codes="1128" />
+        <Key android:keyIcon="@drawable/latex_image_20" android:codes="1129" />
+        <Key android:keyLabel="$" android:codes="1130" />
+
     </Row>
 
-    <!-- Fourth Row -->
     <Row>
-        <Key android:keyLabel="\max" android:keyOutputText="max" />
-        <Key android:keyLabel="\sup" android:keyOutputText="sup" />
-        <Key android:keyLabel="\inf" android:keyOutputText="inf" />
-        <Key android:keyLabel="\limsup" android:keyOutputText="lim sup" />
-        <Key android:keyLabel="\liminf" android:keyOutputText="lim inf" />
+        <Key android:keyIcon="@drawable/latex_image_21" android:codes="1131" />
+        <Key android:keyIcon="@drawable/latex_image_23" android:codes="1132" />
+        <Key android:keyIcon="@drawable/latex_image_24" android:codes="1133" />
+        <Key android:keyIcon="@drawable/latex_image_25" android:codes="1134" />
+        <Key android:keyIcon="@drawable/latex_image_26" android:codes="1136" />
+        <Key android:keyIcon="@drawable/latex_image_27" android:codes="1137" />
+        <Key android:keyIcon="@drawable/latex_image_28" android:codes="1138" />
+        <Key android:keyIcon="@drawable/latex_image_29" android:codes="1139" />
+        <Key android:keyIcon="@drawable/latex_image_30" android:codes="1140" />
+        <Key android:keyIcon="@drawable/latex_image_31" android:codes="1141" />
+
+
     </Row>
 
-    <!-- Fifth Row -->
     <Row>
-        <Key android:keyLabel="\overline{A}" android:keyOutputText="𝐴̅" />
-        <Key android:keyLabel="\{ }" android:keyOutputText="{}" />
-        <Key android:keyLabel="DEL" android:codes="-5" android:keyEdgeFlags="right" android:isRepeatable="true" />
+        <Key android:keyIcon="@drawable/latex_image_32" android:codes="1142" />
+        <Key android:keyIcon="@drawable/latex_image_33" android:codes="1143" />
+        <Key android:keyIcon="@drawable/latex_image_34" android:codes="1144" />
+        <Key android:keyIcon="@drawable/latex_image_35" android:codes="1145" />
+        <Key android:keyIcon="@drawable/latex_image_36" android:codes="1146" />
+        <Key android:keyIcon="@drawable/latex_image_37" android:codes="1147" />
+        <Key android:keyIcon="@drawable/latex_image_38" android:codes="1148" />
+        <Key android:keyIcon="@drawable/latex_image_39" android:codes="1149" />
+        <Key android:keyIcon="@drawable/latex_image_40" android:codes="1150" />
+        <Key android:keyIcon="@drawable/latex_image_41" android:codes="1151" />
+
     </Row>
+
+    <!-- Mathematical symbols -->
+    <Row>
+        <Key android:keyIcon="@drawable/latex_image_42" android:codes="1152" />
+        <Key android:keyIcon="@drawable/latex_image_43" android:codes="1153" />
+        <Key android:keyIcon="@drawable/latex_image_44" android:codes="1154" />
+        <Key android:keyIcon="@drawable/latex_image_45" android:codes="1155" />
+        <Key android:keyIcon="@drawable/latex_image_46" android:codes="1156" />
+        <Key android:keyLabel="MatA" android:codes="1157" />
+        <Key android:keyLabel="DetA" android:codes="1158" />
+        <Key android:keyLabel="det(A)" android:codes="1159" />
+        <Key android:keyIcon="@drawable/latex_image_50" android:codes="1160" />
+        <Key android:keyIcon="@drawable/latex_image_52" android:codes="1162" />
+
+    </Row>
+
+    <Row>
+        <Key android:keyLabel="→" android:codes="1163" />
+        <Key android:keyIcon="@drawable/latex_image_53" android:codes="1164" />
+        <Key android:keyLabel="|x|" android:codes="1163" />
+        <Key android:keyLabel="≥" android:codes="1164" />
+        <Key android:keyLabel="pwf(x)" android:codes="1165" />
+        <Key android:keyIcon="@drawable/latex_image_55" android:codes="1179" />
+        <Key android:keyIcon="@drawable/latex_image_56" android:codes="1180" />
+        <Key android:keyIcon="@drawable/latex_image_57" android:codes="1181" />
+        <Key android:keyIcon="@drawable/latex_image_58" android:codes="1182" />
+        <Key android:keyIcon="@drawable/latex_image_59" android:codes="1183" />
+
+    </Row>
+
+    <Row android:rowEdgeFlags="bottom">
+        <Key android:keyLabel=","
+            android:keyWidth="30dp"
+            android:keyEdgeFlags="left"
+            android:codes="44" />
+        <Key android:keyLabel="/"
+            android:keyWidth="30dp"
+            android:codes="47" />
+        <Key android:keyLabel="SPACE"
+            android:keyWidth="160dp"
+            android:isRepeatable="true"
+            android:codes="32" />
+        <Key android:keyLabel="DONE"
+            android:keyWidth="100dp"
+            android:keyEdgeFlags="right"
+            android:codes="-4" />
+        <Key android:keyLabel="DEL"
+            android:keyWidth="40dp"
+            android:isRepeatable="true"
+            android:codes="-5" />
+
+    </Row>
+
+
 
 </Keyboard>
