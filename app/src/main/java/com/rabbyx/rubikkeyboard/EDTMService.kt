@@ -9,14 +9,15 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import android.util.Log
+import android.webkit.WebView
+import android.webkit.WebViewClient
 
 class EDTMService : InputMethodService(), KeyboardView.OnKeyboardActionListener {
 
     private lateinit var keyboardView: KeyboardView
     private lateinit var suggestionBar: LinearLayout
-    private lateinit var suggestionText: TextView
     private lateinit var keyboard: Keyboard
-
+    private lateinit var webView: WebView
     private var isGreekLayout = false
     private var isAlgebraLayout = false
     private var isCalculusLayout = false
@@ -28,9 +29,28 @@ class EDTMService : InputMethodService(), KeyboardView.OnKeyboardActionListener 
         val inputView = layoutInflater.inflate(R.layout.keyboard, null)
 
 
+
+
+        webView = inputView.findViewById(R.id.webView)
+
+        // Enable JavaScript
+        webView.settings.javaScriptEnabled = true
+
+        // Set WebViewClient to handle link clicks inside WebView
+        webView.webViewClient = WebViewClient()
+
+        // Load the HTML file from assets
+        webView.loadUrl("file:///android_asset/input.html")
+
+        webView.addJavascriptInterface(object {
+            @android.webkit.JavascriptInterface
+            fun onInputUpdated(value: String) {
+                // Update the input connection if necessary
+                currentInputConnection.commitText(value, 1)
+            }
+        }, "AndroidBridge")
         // Get references to the suggestion bar and keyboard view
         suggestionBar = inputView.findViewById(R.id.suggestionBar)
-        suggestionText = inputView.findViewById(R.id.suggestionText)
 
 
         // Load the default layout (QWERTY)
@@ -38,6 +58,8 @@ class EDTMService : InputMethodService(), KeyboardView.OnKeyboardActionListener 
         keyboardView = inputView.findViewById(R.id.keyboardView)
         keyboardView.keyboard = keyboard
         keyboardView.setOnKeyboardActionListener(this)
+
+
 
         return inputView
     }
@@ -53,7 +75,14 @@ class EDTMService : InputMethodService(), KeyboardView.OnKeyboardActionListener 
             }
             Keyboard.KEYCODE_DELETE -> {
                 inputConnection.deleteSurroundingText(1, 0)
+                webView.dispatchKeyEvent(
+                    KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL)
+                )
+                webView.dispatchKeyEvent(
+                    KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL)
+                )
             }
+
 
             // Section SET
             1111-> inputConnection.commitText("\\{1,2,3}", 1)
@@ -80,10 +109,18 @@ class EDTMService : InputMethodService(), KeyboardView.OnKeyboardActionListener 
 
             //Calculus
 
-            1132->inputConnection.commitText("\\frac{df}{dx}", 1)
-            1132->inputConnection.commitText("\\frac{d^n}{dx^n} f(x)", 1)
-            1133->inputConnection.commitText("\\f'", 1)
-            1134->inputConnection.commitText("\\frac{\\partial f}{\\partial x}", 1)
+            1132-> {
+
+                inputConnection.commitText("\\frac{d^n}{dx^n} f(x)", 1)
+                sendTextToMathField("\\\\frac{d^n}{dx^n}f(x)")
+
+            }
+            1133-> {
+                inputConnection.commitText("\\f'", 1)
+            }
+            1134-> {
+                inputConnection.commitText("\\frac{\\partial f}{\\partial x}", 1)
+            }
             1135->inputConnection.commitText("\\frac{\\partial f}{\\partial x}", 1)
             1136->inputConnection.commitText("\\int_a^b", 1)
             1137->inputConnection.commitText("\\int", 1)
@@ -174,7 +211,7 @@ class EDTMService : InputMethodService(), KeyboardView.OnKeyboardActionListener 
             1222->inputConnection.commitText("y_0 e^{kt}", 1)
             1223->inputConnection.commitText("\\log_b\\left(\\frac{x}{y}\\right)", 1)
             1224->inputConnection.commitText("\\sqrt[n]{x} ", 1)
-
+            1225->inputConnection.commitText("deg(f)", 1)
 
 
 
@@ -215,7 +252,13 @@ class EDTMService : InputMethodService(), KeyboardView.OnKeyboardActionListener 
             }
             -3 -> {
                 // Switch to Algebra layout
-                switchToLayout("algebra")
+                switchToLayout("set")
+            }
+            -5 -> {
+                val script = "javascript:document.getElementById('mathField').value = '';"
+                webView.evaluateJavascript(script) { result ->
+                    Log.d("EDTMService", "Backspace executed: $result")
+                }
             }
             -999 -> {
                 // Switch to Calculus layout
@@ -233,6 +276,8 @@ class EDTMService : InputMethodService(), KeyboardView.OnKeyboardActionListener 
                 // Send the corresponding character for the key pressed
                 val character = primaryCode.toChar()
                 inputConnection.commitText(character.toString(), 1)
+                sendTextToMathField(character.toString())
+
             }
         }
 
@@ -242,7 +287,6 @@ class EDTMService : InputMethodService(), KeyboardView.OnKeyboardActionListener 
 
     // Method to update the suggestion bar visibility and content
     private fun updateSuggestionBar(suggestion: String) {
-        suggestionText.text = suggestion
         suggestionBar.visibility = if (suggestion.isNotEmpty()) View.VISIBLE else View.GONE
     }
 
@@ -267,13 +311,13 @@ class EDTMService : InputMethodService(), KeyboardView.OnKeyboardActionListener 
                     Toast.makeText(this, "Greek Layout", Toast.LENGTH_SHORT).show()
                 }
             }
-            "algebra" -> {
+            "set" -> {
                 if (!isAlgebraLayout) {
                     resetLayouts()
                     isAlgebraLayout = true
-                    keyboard = Keyboard(this, R.xml.algebra)
+                    keyboard = Keyboard(this, R.xml.set)
                     keyboardView.keyboard = keyboard
-                    Toast.makeText(this, "Algebra Layout", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Set Layout", Toast.LENGTH_SHORT).show()
                 }
             }
             "calculus" -> {
@@ -342,4 +386,19 @@ class EDTMService : InputMethodService(), KeyboardView.OnKeyboardActionListener 
     override fun swipeUp() {
         // Handle swipe up action if needed
     }
+
+    private fun sendTextToMathField(text: String) {
+        if (text == "BACKSPACE") {
+            // Remove the last character from the math field
+            val script = "javascript:document.getElementById('mathField').value = document.getElementById('mathField').value.slice(0, -1);"
+            webView.evaluateJavascript(script, null)
+        } else {
+            // Inject JavaScript to update the math-field with the new text
+            val script = "javascript:document.getElementById('mathField').value += '$text';"
+            webView.evaluateJavascript(script, null)
+        }
+    }
+
+
+
 }
