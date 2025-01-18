@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathLive Input</title>
+    <style>
+        .math-container {
+            position: relative;
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        .math-input {
+            width: 100%;
+            height: 100px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .backspace-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 8px 15px;
+            border: none;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .backspace-button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<!-- MathLive Input Field with Backspace Button -->
+<div class="math-container">
+    <math-field
+            id="mathField"
+            virtual-keyboard-mode="off"
+            virtual-keyboard-theme="apple"
+            oninput="AndroidBridge?.onInputUpdated(this.value)"
+            class="math-input">
+    </math-field>
+    <button class="backspace-button" onclick="deleteBackward()">DEL</button>
+</div>
+
+<!-- Output for debugging -->
+<div id="latexOutput"></div>
+
+<!-- Include MathLive JS -->
+<script src="./mathlive.min.js"></script>
+
+<script>
+    // Initialize MathLive input field
+    const mathField = document.getElementById('mathField');
+
+    // Function to delete the character before the cursor
+    function deleteBackward() {
+        if (mathField) {
+            mathField.executeCommand('deleteBackward');
+            console.log('Backspace performed');
+        }
+    }
+
+    // Function to get LaTeX from MathLive input
+    function getLatex() {
+        const latex = mathField.getValue();
+        console.log('Retrieved LaTeX:', latex); // Debug output
+        return latex || ''; // Return empty string if no LaTeX is present
+    }
+
+    // Function to set LaTeX to MathLive input
+    function setLatex(latex) {
+        console.log('Setting LaTeX:', latex); // Debug output
+        mathField.setValue(latex);
+    }
+
+    // Ensure MathLive virtual keyboard works properly
+    mathField.setOptions({
+        virtualKeyboardMode: 'manual',
+        virtualKeyboardTheme: 'apple'
+    });
+
+    // Debugging log for MathLive initialization
+    console.log('MathLive initialized:', mathField);
+</script>
+
+</body>
+</html>
