@@ -19,10 +19,9 @@
             box-sizing: border-box;
         }
 
-        .backspace-button {
+        .backspace-button, .insert-button {
             position: absolute;
             bottom: 10px;
-            right: 10px;
             padding: 8px 15px;
             border: none;
             background-color: #f0f0f0;
@@ -32,27 +31,32 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .backspace-button:hover {
+        .backspace-button {
+            right: 90px;
+        }
+
+        .insert-button {
+            right: 10px;
+        }
+
+        .backspace-button:hover, .insert-button:hover {
             background-color: #ddd;
         }
     </style>
 </head>
 <body>
 
-<!-- MathLive Input Field with Backspace Button -->
 <div class="math-container">
+    <!-- MathLive Input -->
     <math-field
             id="mathField"
-            virtual-keyboard-mode="off"
+            virtual-keyboard-mode="manual"
             virtual-keyboard-theme="apple"
-            oninput="AndroidBridge?.onInputUpdated(this.value)"
             class="math-input">
     </math-field>
-    <button class="backspace-button" onclick="deleteBackward()">DEL</button>
+    <button class="backspace-button" onclick="deleteBackward(event)">DEL</button>
+    <button class="insert-button" onclick="insertToSelectedInput()">Insert</button>
 </div>
-
-<!-- Output for debugging -->
-<div id="latexOutput"></div>
 
 <!-- Include MathLive JS -->
 <script src="./mathlive.min.js"></script>
@@ -61,35 +65,60 @@
     // Initialize MathLive input field
     const mathField = document.getElementById('mathField');
 
-    // Function to delete the character before the cursor
-    function deleteBackward() {
+    if (mathField) {
+        mathField.setOptions({
+            virtualKeyboardMode: 'manual',
+            virtualKeyboardTheme: 'apple'
+        });
+
+        console.log('MathLive initialized:', mathField);
+
+        // Bind onInput event to communicate with AndroidBridge
+        mathField.addEventListener('input', () => {
+            if (window.AndroidBridge && typeof window.AndroidBridge.onInputUpdated === 'function') {
+                //window.AndroidBridge.onInputUpdated(mathField.getValue());
+            }
+        });
+    } else {
+        console.error('MathLive element not found. Ensure the "math-field" is loaded correctly.');
+    }
+
+    // Function to delete the character before the cursor in MathLive input
+    function deleteBackward(event) {
+        event.preventDefault();  // Prevent default behavior (such as filling Android EditText)
+
         if (mathField) {
             mathField.executeCommand('deleteBackward');
             console.log('Backspace performed');
+
+            // Send "backspace" signal to Android (not committing text)
+            if (window.AndroidBridge && typeof window.AndroidBridge.onInputUpdated === 'function') {
+            }
+        } else {
+            console.error('MathField is not initialized.');
         }
     }
 
     // Function to get LaTeX from MathLive input
     function getLatex() {
-        const latex = mathField.getValue();
-        console.log('Retrieved LaTeX:', latex); // Debug output
-        return latex || ''; // Return empty string if no LaTeX is present
+        if (mathField) {
+            const latex = mathField.getValue();
+            console.log('Retrieved LaTeX:', latex);
+            return latex || ''; // Return empty string if no LaTeX is present
+        } else {
+            console.error('MathField is not initialized.');
+            return '';
+        }
     }
 
-    // Function to set LaTeX to MathLive input
-    function setLatex(latex) {
-        console.log('Setting LaTeX:', latex); // Debug output
-        mathField.setValue(latex);
+    // Function to insert LaTeX into the currently selected EditText in the Android app
+    function insertToSelectedInput() {
+        const latex = getLatex();
+        console.log('Insert Button Clicked');
+        console.log('LaTeX to insert:', latex);
+        window.AndroidBridge.onInputUpdated(mathField.getValue());
+
     }
-
-    // Ensure MathLive virtual keyboard works properly
-    mathField.setOptions({
-        virtualKeyboardMode: 'manual',
-        virtualKeyboardTheme: 'apple'
-    });
-
-    // Debugging log for MathLive initialization
-    console.log('MathLive initialized:', mathField);
 </script>
 
 </body>
