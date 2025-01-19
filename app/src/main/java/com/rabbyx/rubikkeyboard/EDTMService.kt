@@ -278,10 +278,18 @@ class EDTMService : InputMethodService(), KeyboardView.OnKeyboardActionListener 
             webView.evaluateJavascript(script, null)
         } else {
             // Inject JavaScript to update the math-field with the new text
-            val script = "javascript:document.getElementById('mathField').value += '$text';"
+            val script = """
+                javascript: (function() {
+                    var mathField = document.getElementById('mathField');
+                    mathField.insert('$text');
+                })();
+            """
+
             webView.evaluateJavascript(script, null)
         }
     }
+
+
 
 
 

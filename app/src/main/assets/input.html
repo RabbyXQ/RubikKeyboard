@@ -79,6 +79,12 @@
                 //window.AndroidBridge.onInputUpdated(mathField.getValue());
             }
         });
+
+        // Track cursor position continuously
+        mathField.addEventListener('selectionchange', () => {
+            const selection = mathField.selection;
+            console.log(`Cursor Position: ${selection.start}`);
+        });
     } else {
         console.error('MathLive element not found. Ensure the "math-field" is loaded correctly.');
     }
@@ -117,7 +123,6 @@
         console.log('Insert Button Clicked');
         console.log('LaTeX to insert:', latex);
         window.AndroidBridge.onInputUpdated(mathField.getValue());
-
     }
 </script>
 
